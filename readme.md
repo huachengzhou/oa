@@ -1,0 +1,3 @@
+密码采用的是md5加密方式
+项目是Spring和hibernate以及activiti搭建而成
+项目的权限采用的是ztree tree
