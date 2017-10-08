@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-8-29 20:08:59 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="cn.blake.shoa.domain.Form" table="FORM">
+        <id name="fid" type="java.lang.Integer">
+            <column name="FID" />
+            <generator class="native" />
+        </id>
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" />
+        </property>
+        <property name="piid" type="java.lang.String">
+            <column name="piid" />
+        </property>
+        <property name="applicator" type="java.lang.String">
+            <column name="APPLICATOR" />
+        </property>
+        <property name="applictetime" type="java.util.Date">
+            <column name="APPLICTETIME" />
+        </property>
+        <property name="state" type="java.lang.String">
+            <column name="STATE" />
+        </property>
+        <property name="url" type="java.lang.String">
+            <column name="URL" />
+        </property>
+        <many-to-one name="formTemplate" class="cn.blake.shoa.domain.FormTemplate" fetch="join">
+        	<column name="formTemplate"></column>
+        </many-to-one>
+        <set name="approves" table="APPROVE" inverse="false" lazy="true">
+            <key>
+                <column name="FID" />
+            </key>
+            <one-to-many class="cn.blake.shoa.domain.Approve" />
+        </set>
+    </class>
+</hibernate-mapping>

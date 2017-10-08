@@ -1,0 +1,12 @@
+$().ready(function(){
+	//1、创建命名空间
+	$.nameSpace("cn.blake.oa.MenuItemTree");
+	//2、启动继承基础把TreePanel实现继承
+	$.extend(cn.blake.oa.MenuItemTree,$.fn.TreePanel);
+	//3、调用createTree方法创建树
+	cn.blake.oa.MenuItemTree.createTree({
+		url:'showMenuitemTreeByUid',
+		data:null,
+		id:'menuTree'
+	});
+});

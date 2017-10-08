@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<session-factory>
+	<!-- org.hibernate.dialect.MySQL5InnoDBDialect -->
+	<!-- org.hibernate.dialect.Oracle10gDialect -->
+	<property name="hibernate.dialect">
+		org.hibernate.dialect.MySQL5InnoDBDialect
+	</property>
+	<property name="hibernate.show_sql">false</property>
+	<property name="hibernate.format_sql">true</property>
+	<property name="hibernate.hbm2ddl.auto">update</property>
+
+	<mapping resource="cn/blake/shoa/domain/Department.hbm.xml" />
+	<mapping resource="cn/blake/shoa/domain/Menuitem.hbm.xml" />
+	<mapping resource="cn/blake/shoa/domain/Person.hbm.xml" />
+	<mapping resource="cn/blake/shoa/domain/Privilege.hbm.xml" />
+	<mapping resource="cn/blake/shoa/domain/Role.hbm.xml" />
+	<mapping resource="cn/blake/shoa/domain/User.hbm.xml" />
+
+	<mapping resource="cn/blake/shoa/domain/Approve.hbm.xml" />
+	<mapping resource="cn/blake/shoa/domain/Form.hbm.xml" />
+	<mapping resource="cn/blake/shoa/domain/FormTemplate.hbm.xml" />
+</session-factory>
+</hibernate-configuration>

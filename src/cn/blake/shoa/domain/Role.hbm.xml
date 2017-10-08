@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-7-31 19:18:13 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="cn.blake.shoa.domain.Role" table="ROLE">
+		<id name="rid" type="java.lang.Integer">
+			<column name="RID" />
+			<generator class="native" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="NAME" />
+		</property>
+		<property name="checked" type="java.lang.Boolean">
+			<column name="checked" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="DESCRIPTION" />
+		</property>
+		<property name="pid" type="java.lang.Integer">
+			<column name="pid" />
+		</property>
+		<set name="users" table="Role_User" inverse="true" lazy="false"><!-- 多对多谁维护关系都是一样 -->
+			<key>
+				<column name="RID"></column>
+			</key>
+			<!-- 多对多会有第三张表 -->
+			<many-to-many class="cn.blake.shoa.domain.User" column="UID">
+			</many-to-many>
+		</set>
+		<set name="privileges" table="Role_Privilege" inverse="true" lazy="false"><!-- 多对多谁维护关系都是一样 -->
+			<key>
+				<column name="RID"></column>
+			</key>
+			<!-- 多对多会有第三张表 -->
+			<many-to-many class="cn.blake.shoa.domain.Privilege" column="id">
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

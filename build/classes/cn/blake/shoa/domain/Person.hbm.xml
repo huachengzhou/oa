@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-7-31 10:08:22 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="cn.blake.shoa.domain.Person" table="persons">
+        <id name="pid" type="java.lang.Integer">
+            <column name="PID" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="sex" type="java.lang.String">
+            <column name="SEX" />
+        </property>
+    </class>
+</hibernate-mapping>

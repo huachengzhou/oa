@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-7-31 19:18:13 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="cn.blake.shoa.domain.User" table="USER">
+		<id name="uid" type="java.lang.Integer">
+			<column name="UID" />
+			<generator class="native" />
+		</id>
+		<property name="username" type="java.lang.String" length="20">
+			<column name="USERNAME" />
+		</property>
+		<property name="name" type="java.lang.String" length="10">
+			<column name="name" />
+		</property>
+		<property name="password" type="java.lang.String" length="60">
+			<column name="PASSWORD" />
+		</property>
+		<property name="sex" type="java.lang.String">
+			<column name="SEX" />
+		</property>
+		<property name="phone" type="java.lang.String" length="11">
+			<column name="PHONE" />
+		</property>
+		<property name="email" type="java.lang.String" length="20">
+			<column name="EMAIL" />
+		</property>
+		<set name="roles" table="Role_User" inverse="false" lazy="false">
+			<key><!-- 由另一方维护关系 -->
+				<column name="UID" />
+			</key>
+			<many-to-many class="cn.blake.shoa.domain.Role" column="RID" />
+		</set>
+		<many-to-one name="department" class="cn.blake.shoa.domain.Department"
+			fetch="join">
+			<column name="DEPARTMENT" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-8-29 20:08:59 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="cn.blake.shoa.domain.Approve" table="APPROVE">
+        <id name="aid" type="java.lang.Integer">
+            <column name="AID" />
+            <generator class="native" />
+        </id>
+        <property name="approvename" type="java.lang.String">
+            <column name="APPROVENAME" />
+        </property>
+        <property name="approvetime" type="java.util.Date">
+            <column name="APPROVETIME" />
+        </property>
+        <property name="isapprove" type="java.lang.Boolean">
+            <column name="ISAPPROVE" />
+        </property>
+        <many-to-one name="form" class="cn.blake.shoa.domain.Form" fetch="join">
+            <column name="FORM" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

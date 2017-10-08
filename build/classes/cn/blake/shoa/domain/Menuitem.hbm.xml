@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.blake.shoa.domain.Menuitem" table="Menuitems">
+		<id name="mid" type="java.lang.Integer">
+			<column name="mid" />
+			<generator class="native" />
+		</id>
+		<property name="pid" type="java.lang.Integer">
+			<column name="pid"></column>
+		</property>
+		<property name="isParent" type="java.lang.Boolean">
+			<column name="isParent"></column>
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="icon" type="java.lang.String">
+			<column name="icon" />
+		</property>
+	</class>
+</hibernate-mapping>

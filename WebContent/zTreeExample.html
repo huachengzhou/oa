@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+ <HEAD>
+  <TITLE> ZTREE DEMO </TITLE>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="zTreeStyle/zTreeStyle.css" type="text/css">
+	<style>
+	body {
+	background-color: white;
+	margin:0; padding:0;
+	text-align: center;
+	}
+	div, p, table, th, td {
+		list-style:none; 
+		margin:0; padding:0; 
+		color:#333; font-size:12px; 
+		font-family:dotum, Verdana, Arial, Helvetica, AppleGothic, sans-serif;
+	}
+  </style>
+  <script type="text/javascript" src="js/jquery-1.8.0.js"></script>
+  <script type="text/javascript" src="js/jquery-ztree-2.5.js"></script>
+
+  <SCRIPT LANGUAGE="JavaScript">
+	var setting = {
+			checkable : true,
+			isSimpleData: true,
+			treeNodeKey: "id",
+			treeNodeParentKey: "pId",
+			showLine: true,
+			root:{ 
+				isRoot:true,
+				nodes:[]
+			}
+	};
+    zNodes =[
+       {id:1,pId:0,name:"生命的物种"},
+       {id:1,pId:0,name:"地球上的生物"},
+	       {id:2,pId:1,name:"陆上生物"},   /*如果是子类继承父类那么pId的值只能写id对应的值*/
+	       {id:3,pId:1,name:"水上生物"},
+	       {id:5,pId:2,name:"鸟类"},
+	           {id:51,pId:5,name:"麻雀"},
+	           {id:52,pId:5,name:"凤凰"},
+	           {id:53,pId:5,name:"海燕"},
+	       {id:6,pId:2,name:"爬行动物"},
+		       {id:61,pId:6,name:"青花蛇"},
+		       {id:62,pId:6,name:"蟒蛇"},
+		       {id:63,pId:6,name:"眼镜蛇"},
+		       {id:64,pId:6,name:"黑曼巴蛇"},
+		       {id:64,pId:6,name:"响尾蛇"},
+		       {id:65,pId:6,name:"蜥蜴"},
+		       {id:66,pId:6,name:"蚂蚁"},
+		       {id:67,pId:6,name:"蜘蛛"},
+		       {id:67,pId:6,name:"蝎子"},
+	       {id:7,pId:2,name:"奔跑动物"},
+		       {id:71,pId:7,name:"狮子"},
+		       {id:72,pId:7,name:"老虎"},
+		       {id:73,pId:7,name:"豹子"},
+		       {id:74,pId:7,name:"长颈鹿"},
+	       {id:8,pId:2,name:"跳跃动物"},
+		       {id:81,pId:8,name:"跳蚤"},
+		       {id:82,pId:8,name:"虱子"}
+    ];
+	$(document).ready(function(){
+		zTree = $("#tree").zTree(setting, zNodes);
+		var nodes = zTree.getNodes();
+	});
+
+  </SCRIPT>
+ </HEAD>
+
+<BODY>
+<TABLE border=0 height=600px align=left>
+	<TR>
+		<TD width=230px align=left valign=top style="BORDER-RIGHT: #999999 1px dashed">
+			<ul id="tree" class="tree" style="width:230px; overflow:auto;"></ul>
+		</TD>
+	</TR>
+</TABLE>
+
+ </BODY>
+</HTML>
